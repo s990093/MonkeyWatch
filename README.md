@@ -49,14 +49,7 @@
    python install.py
    ```
 
-2. **創建 Django 專案**:
-
-   - 使用 Django 命令行工具創建新的專案和應用：
-     ```bash
-     django-admin startproject monkey_monitoring
-     cd monkey_monitoring
-     django-admin startapp detection
-     ```
+2. ** Django 專案**:
 
 3. **整合 YOLO 模型**:
    - 將 YOLO 模型整合進 Django 應用，使用如 OpenCV 等庫進行影像處理和物件偵測。
