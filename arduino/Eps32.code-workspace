@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    },
+    {
+      "name": "esp32_",
+      "path": "../../../../Documents/PlatformIO/Projects/esp32_"
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "*.embeddedhtml": "html",
+      "*.html": "html",
+      "functional": "cpp",
+      "array": "cpp",
+      "string": "cpp",
+      "string_view": "cpp",
+      "*.tcc": "cpp",
+      "istream": "cpp",
+      "ostream": "cpp",
+      "tuple": "cpp",
+      "type_traits": "cpp",
+      "utility": "cpp",
+      "typeinfo": "cpp",
+      "system_error": "cpp"
+    }
+  }
+}

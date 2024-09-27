@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task List</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #121212;
+        color: #e0e0e0;
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 600px;
+        width: 100%;
+        background-color: #1f1f1f;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 26px;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        background-color: #2b2b2b;
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s ease;
+      }
+
+      li:hover {
+        background-color: #333333;
+      }
+
+      li span {
+        font-weight: bold;
+        color: #90caf9;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 22px;
+        }
+
+        li {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Task List</h1>
+      <ul>
+        {% for task in tasks %}
+        <li>
+          <span>{{ task.name }}</span>
+          <span>{{ task.day_of_week }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
