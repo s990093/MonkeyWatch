@@ -2,10 +2,30 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.generics import ListAPIView, UpdateAPIView
-from .models import WeeklyTask, DailyTask, CompletionStatus
+from .models import *
 from .serializers import GroupedWeeklyTaskSerializer, WeeklyTaskSerializer, CompletionStatusSerializer
 from django.shortcuts import get_object_or_404
+import json
 
+
+def monkeyEventShow(request):
+    if(request.GET.get("date") == None) :
+        events= MonkeyDetectionEvent.objects.all()
+        event_list = []
+        for event in events:
+            event_data = {
+                'id': event.id,
+                'image_id': event.image.id,  # Include the related image ID
+                'timestamp': event.timestamp.isoformat(),  # Format timestamp for JSON serialization
+                'location': event.location,
+                'monkey_count': event.monkey_count,
+                'verdict': event.verdict,
+                'mark': event.mark,
+            }
+        event_list.append(event_data)
+        return json.dumps(event_list)
+    else :
+        pass
 # List all WeeklyTasks
 class WeeklyTaskView(APIView):
     def get(self, request):

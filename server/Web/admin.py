@@ -1,5 +1,28 @@
 from django.contrib import admin
-from .models import CompletionStatus, Task, DailyTask, WeeklyTask
+from .models import *
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    list_display = ('id', 'timestamp', 'is_labeled', 'path')  # 在列表頁顯示的欄位
+    list_filter = ('is_labeled', 'timestamp')  # 提供過濾選項
+    search_fields = ('path',)  # 提供搜尋欄位
+
+@admin.register(MonkeyDetectionEvent)
+class MonkeyDetectionEventAdmin(admin.ModelAdmin):
+    list_display = ('id', 'image', 'timestamp', 'location', 'monkey_count', 'verdict')
+    list_filter = ('location', 'timestamp')
+    search_fields = ('location',)
+    raw_id_fields = ('image',)  # 使用 raw_id_fields 來改善外鍵欄位的顯示方式
+
+@admin.register(SystemLog)
+class SystemLogAdmin(admin.ModelAdmin):
+    list_display = ('timestamp', 'logType', 'status', 'message')
+    list_filter = ('logType', 'status', 'timestamp')
+    search_fields = ('message',)
+
+@admin.register(config)
+class configAdmin(admin.ModelAdmin):
+    #  根據需要自訂 config 模型的顯示方式
+    pass
 
 @admin.register(CompletionStatus)
 class CompletionStatusAdmin(admin.ModelAdmin):
