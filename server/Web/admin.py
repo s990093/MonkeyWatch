@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import *
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ('id', 'timestamp', 'is_labeled', 'path')  # 在列表頁顯示的欄位
+    list_display = ('id', 'timestamp', 'is_labeled')  # 在列表頁顯示的欄位
     list_filter = ('is_labeled', 'timestamp')  # 提供過濾選項
     search_fields = ('path',)  # 提供搜尋欄位
 

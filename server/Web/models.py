@@ -6,7 +6,7 @@ class Image(models.Model):
     detection_results = models.JSONField(default=dict)  # 儲存檢測結果，例如：{'monkey_count': 2, 'location': [100, 200]}
     timestamp = models.DateTimeField(auto_now_add=True)  # 自動記錄圖片上傳時間
     is_labeled = models.BooleanField(default=False)     # 是否已標記
-    path =models.TextField(default="")
+
 
     def __str__(self):
         return f"Image {self.id} - {self.timestamp}"

@@ -6,7 +6,7 @@ from .models import *
 from .serializers import GroupedWeeklyTaskSerializer, WeeklyTaskSerializer, CompletionStatusSerializer
 from django.shortcuts import get_object_or_404
 import json
-
+from django.http import JsonResponse
 
 def monkeyEventShow(request):
     if(request.GET.get("date") == None) :
@@ -23,7 +23,7 @@ def monkeyEventShow(request):
                 'mark': event.mark,
             }
         event_list.append(event_data)
-        return json.dumps(event_list)
+        return JsonResponse(event_list, safe=False)
     else :
         pass
 # List all WeeklyTasks
