@@ -48,19 +48,14 @@ def train_model(data, model, epochs, imgsz, batch_size, device):
     # Show parameters
     show_parameters(data, model, epochs, imgsz, batch_size, device)
 
-    # Train model
-    try:
-        logging.info("Starting training...")
-        yolo_model.train(
-            data=data, 
-            epochs=epochs,
-            batch=batch_size,
-            imgsz=imgsz,
-            device=device
-        )
-        logging.info("Training completed successfully.")
-    except Exception as e:
-        logging.error(f"An error occurred during training: {e}")
-
+    logging.info("Starting training...")
+    yolo_model.train(
+        data=data, 
+        epochs=epochs,
+        batch=batch_size,
+        imgsz=imgsz,
+        device=device
+    )
+   
 if __name__ == "__main__":
     train_model()
